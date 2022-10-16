@@ -1,0 +1,23 @@
+body{
+    /*background-color: blueviolet;*/
+    background-color: rgb(129, 16, 234);
+}
+
+#wrapper p{
+	padding:300px 0;
+	text-align:center;
+}
+
+/*========= waveを描画するエリア設定 ===============*/
+
+
+.wave{
+	position: relative;
+}
+
+.wave canvas{
+    position: absolute;
+    bottom: 0;
+	left:0;
+    width: 100%;
+}
