@@ -83,20 +83,20 @@ function drawWave(canvas, color, alpha, zoom, delay) {
  * drawSine(時間, 波の幅のzoom, 波の開始位置の遅れ)
  */
 function drawSine(canvas, t, zoom, delay) {
-    var yAxis = Math.floor(canvas.height/2);
-    var xAxis = 0;
+    var xAxis = Math.floor(canvas.height/2);
+    var yAxis = 0;
     var context = canvas.contextCache;
     // Set the initial x and y, starting at 0,0 and translating to the origin on
     // the canvas.
-    var y = t; //時間を横の位置とする
-    var x = Math.sin(y)/zoom;
-    context.moveTo(xAxis, unit*x+yAxis); //スタート位置にパスを置く
+    var x = t; //時間を横の位置とする
+    var y = Math.sin(x)/zoom;
+    context.moveTo(yAxis, unit*y+xAxis); //スタート位置にパスを置く
 
     // Loop to draw segments (横幅の分、波を描画)
     for (i = yAxis; i <= canvas.width + 10; i += 10) {
-        y = t+(-xAxis+i)/unit/zoom;
-        x = Math.sin(y - delay)/3;
-        context.lineTo(i, unit*x+yAxis);
+        x = t+(-yAxis+i)/unit/zoom;
+        y = Math.sin(x - delay)/3;
+        context.lineTo(i, unit*y+xAxis);
     }
 }
 
